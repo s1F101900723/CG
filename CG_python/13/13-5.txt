@@ -1,0 +1,17 @@
+手順
+git clone https://github.com/xhujoy/CycleGAN-tensorflow
+cd CycleGAN-tensorflow
+
+bash ./download_dataset.sh horse2zebra
+
+python main.py --dataset_dir=horse2zebra
+
+nvidia-smi -L
+→ GPU一覧を確認
+
+# GPUを指定
+export CUDA_VISIBLE_DEVICES="0"
+
+tensorboard --logdir=./logs
+
+python main.py --dataset_dir=horse2zebra --phase=test --which_direction=AtoB
